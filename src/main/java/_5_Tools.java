@@ -24,7 +24,6 @@ public class _5_Tools {
     // 1. Define tools
     static class UserInformationRetriever {
 
-        @Tool("finds the username for the given email address")
         String getUserNameFromEmail(String email) {
             // For illustration purpose we print the call to console
             System.out.println("Called getUserNameFromEmail() with email address='" + email + "'");
@@ -32,7 +31,6 @@ public class _5_Tools {
             return "Darth Vader";
         }
 
-        @Tool("returns the latest game level that the user completed successfully, given their email address")
         int lastCompletedGameLevel(String email) {
             System.out.println("Called lastCompletedGameLevel with email address =" + email);
             // Return a dummy for illustration purpose
@@ -54,7 +52,6 @@ public class _5_Tools {
 
         GamingBot gamingBot = AiServices.builder(GamingBot.class)
                 .chatLanguageModel(model)
-                .tools(new UserInformationRetriever())
                 .chatMemory(MessageWindowChatMemory.withMaxMessages(10))
                 .build();
 

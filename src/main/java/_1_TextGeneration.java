@@ -19,8 +19,8 @@ public class _1_TextGeneration {
         //      - create a ChatLanguageModel of type OpenAi
         //      - set your key
         //      - generate an answer based on your input and print to console
-        ChatLanguageModel modelA = OpenAiChatModel.withApiKey(ApiKeys.OPENAI_API_KEY);
-        String answerA = modelA.generate("Say Hello World");
+        ChatLanguageModel modelA = null;
+        String answerA = null;
         System.out.println("Answer A: " + answerA);
 
         // LangChain4j has many more integrations with model providers, such as Gemini (Google Vertex) and Mistral AI
@@ -35,15 +35,9 @@ public class _1_TextGeneration {
         //      - create another ChatLanguageModel of type OpenAi
         //      - set your key, some model parameters and set logging on for requests and responses
         //      - generate an answer based on your input and print to console
-        ChatLanguageModel modelB = OpenAiChatModel.builder()
-                .apiKey(ApiKeys.OPENAI_API_KEY)
-                .timeout(Duration.ofSeconds(30))
-                .temperature(0.5)
-                .logRequests(true)
-                .logResponses(true)
-                .build();
+        ChatLanguageModel modelB = null;
 
-        String answerB = modelA.generate("Name five words that developers hate to hear most");
+        String answerB = null;
         System.out.println("Answer B: " + answerB);
 
         // Parameter settings depend on the model, and can usually be found on the model provider's website
@@ -56,10 +50,10 @@ public class _1_TextGeneration {
         // assignment:
         //      - create a StreamingChatLanguageModel of type OpenAi
         //      - write an answer to the console and observe how it is rendered token per token
-        StreamingChatLanguageModel modelC = OpenAiStreamingChatModel.withApiKey(ApiKeys.OPENAI_API_KEY);
+        StreamingChatLanguageModel modelC = null;
         System.out.println("Answer C: ");
 
-        modelC.generate("Write a poem about unicorns and grizzly bears"
+        modelC.generate("your prompt"
                 , new StreamingResponseHandler<AiMessage>() {
                     @Override
                     public void onNext(String s) {

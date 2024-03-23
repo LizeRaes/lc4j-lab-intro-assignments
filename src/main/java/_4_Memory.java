@@ -40,22 +40,20 @@ public class _4_Memory {
         public static void main(String[] args) {
 
             // 2. Create ChatMemory
-            ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(10);
-
+            ChatMemory chatMemory = null;
             // 3. Create model
             ChatLanguageModel model = OpenAiChatModel.withApiKey(ApiKeys.OPENAI_API_KEY);
 
             // 4. Generate AIService with memory and model
             Assistant assistant = AiServices.builder(Assistant.class)
                     .chatLanguageModel(model)
-                    .chatMemory(chatMemory)
                     .build();
 
             // 5. Use AIService with memory
-            String answer = assistant.chat("Hello! My name is Gandalf.");
+            String answer = null;
             System.out.println(answer);
 
-            String answerWithName = assistant.chat("What is my name?");
+            String answerWithName = null;
             System.out.println(answerWithName);
         }
     }
@@ -80,14 +78,14 @@ public class _4_Memory {
 
             // 1. Initialize ChatMemory with token limiter
             Tokenizer tokenizer = new OpenAiTokenizer("gpt-3.5-turbo");
-            ChatMemory chatMemory = TokenWindowChatMemory.withMaxTokens(1000, tokenizer);
+            ChatMemory chatMemory = null;
 
             // 2. Add SystemMessage to instruct the model how to behave
             SystemMessage systemMessage = SystemMessage.from(
                     "You are a customer assistant for a phone manufacturer. " +
                             "You turn feedback into tickets for the internal engineering team, and send a friendly reply to the customer. " +
                             "If the topic is not about the phone's hardware or software, you politely refuse to answer");
-            chatMemory.add(systemMessage);
+
 
             // Add some examples of fictive UserMessages and AIMessages to force the model to answer in our format.
             // This is called the few-shot method
@@ -99,11 +97,10 @@ public class _4_Memory {
             // 4. Generate AIService with memory and model
             AIServiceWithMemory.Assistant assistant = AiServices.builder(AIServiceWithMemory.Assistant.class)
                     .chatLanguageModel(model)
-                    .chatMemory(chatMemory)
                     .build();
 
             // 5. Use AIService with few-shot memory
-            String answer = assistant.chat("How can your app be so slow? Please do something about it!");
+            String answer = assistant.chat("your question");
             System.out.print(answer);
         }
 

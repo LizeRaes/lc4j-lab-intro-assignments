@@ -20,14 +20,9 @@ public class _2_ImageGeneration {
         //      - generate and inspect your image
         public static void main(String[] args) {
 
-            ImageModel model = OpenAiImageModel.builder()
-                    .modelName("dall-e-2")
-                    .apiKey(System.getenv("OPENAI_API_KEY"))
-                    .build();
+            ImageModel model = null;
 
-            Response<Image> response = model.generate(
-                    "Swiss software developers with cheese fondue, a parrot and a cup of coffee");
-
+            Response<Image> response = null;
             System.out.println(response.content().url());
         }
     }
@@ -44,14 +39,7 @@ public class _2_ImageGeneration {
             //      - generate your image and store it in the root (file handling code provided)
 
             // TODO make an overview of the options in readme
-            ImageModel model = OpenAiImageModel.builder()
-                    .apiKey(System.getenv("OPENAI_API_KEY"))
-                    .modelName("dall-e-2")
-                    //.quality(DALL_E_QUALITY_HD)
-                    .logRequests(true)
-                    .logResponses(true)
-                    .withPersisting()
-                    .build();
+            ImageModel model = null;
 
             Response<Image> response = model.generate("2 funny cats");
 

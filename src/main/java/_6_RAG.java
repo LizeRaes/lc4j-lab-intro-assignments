@@ -71,8 +71,8 @@ public class _6_RAG {
         //      - add the ContentRetriever to the CoderAgent AIService
         //      - enjoy interaction with our LangChain4j coding assistant over the console
         //
-        // Don't believe it too much, this was an example of easy or naive RAG.
-        // In order for it to return really good results, it needs more tweaking.
+        // Don't believe it too much, this is an example of easy or naive RAG.
+        // In order for it to return better results, it needs more tweaking.
         // If you want to know more, check out the Advanced RAG examples in langchain4j-examples.
 
         ContentRetriever retriever = EmbeddingStoreContentRetriever.builder()
@@ -89,7 +89,6 @@ public class _6_RAG {
         CoderAgent coderAgent = AiServices.builder(CoderAgent.class)
                                 .chatMemory(memory)
                                 .chatLanguageModel(model)
-                                .contentRetriever(retriever)
                                 .build();
 
         consoleInteraction(coderAgent);

@@ -28,21 +28,18 @@ public class _3_AiServices {
         // a. Basic AIService
         // -----------------------
         // Assignment:
-        //      - declare a basic AIService interface with one method chat
+        //      - declare a basic AIService interface Assistant with one method chat
         //      - create the AIService and use it to generate a message
 
         // 1. AIService interface declaration
-        interface Assistant {
-            String chat(String message);
-        }
 
         public static void main(String[] args) {
             // 2. Create AIService
-            Assistant assistant = AiServices.create(Assistant.class, model);
+
 
             // 3. Use AIService
             String userMessage = "Translate 'Plus-Values des cessions de valeurs mobilières, de droits sociaux et gains assimilés'";
-            String answer = assistant.chat(userMessage);
+            String answer = null;
             System.out.println(answer);
         }
     }
@@ -54,48 +51,40 @@ public class _3_AiServices {
         // -----------------------
         // Assignment:
         //      - in TextUtils AIService interface, declare methods to
-        //          - translate a String text into a String language
-        //          - summarize a String text in int n bullet points
-        //          - extract a LocalDateTime from a String text
+        //          - 'translate' a String text into a String language
+        //          - 'summarize' a String text in int n bullet points
+        //          - extractDateTimeFrom a String, returning a LocalDateTime
         //      - create your AIService and test it out
 
         // 1. AIService interface declaration
         interface TextUtils {
 
-            @SystemMessage("You are a professional translator into {{language}}")
-            @UserMessage("Translate the following text: {{text}}")
-            String translate(@V("text") String text, @V("language") String language);
 
-            @SystemMessage("Summarize every message from the user in {{n}} bullet points. Provide only bullet points.")
-            List<String> summarize(@UserMessage String text, @V("n") int n);
-
-            @UserMessage("Extract date and time from {{it}}")
-            LocalDateTime extractDateTimeFrom(String text);
         }
 
         public static void main(String[] args) {
 
             // 2. Create AIService
-            TextUtils utils = AiServices.create(TextUtils.class, model);
+            TextUtils utils = null;
 
             // 3. Use AIService
-            // Try out translator service
-            String translation = utils.translate("Hello, how are you?", "italian");
-            System.out.println(translation); // Ciao, come stai?
+            // Try out translator service (uncomment)
+            // String translation = utils.translate("Hello, how are you?", "italian");
+            // System.out.println(translation);
 
             String text = "AI, or artificial intelligence, is a branch of computer science that aims to create "
                     + "machines that mimic human intelligence. This can range from simple tasks such as recognizing "
                     + "patterns or speech to more complex tasks like making decisions or predictions.";
 
-            // Try out summarizer
-            List<String> bulletPoints = utils.summarize(text, 3);
-            bulletPoints.forEach(System.out::println);
+            // Try out summarizer (uncomment)
+            // List<String> bulletPoints = utils.summarize(text, 3);
+            // bulletPoints.forEach(System.out::println);
 
-            // Try out DateTime extractor
+            // Try out DateTime extractor (uncomment)
             text = "The tranquility pervaded the evening of 1968, just fifteen minutes shy of midnight,"
                     + " following the celebrations of Independence Day.";
-            LocalDateTime dateTime = utils.extractDateTimeFrom(text);
-            System.out.println(dateTime); // 1968-07-04T23:45
+            // LocalDateTime dateTime = utils.extractDateTimeFrom(text);
+            // System.out.println(dateTime);
         }
     }
 
@@ -115,10 +104,8 @@ public class _3_AiServices {
             @Description("short title, 3 words maximum")
             private String title;
 
-            @Description("short description, 2 sentences maximum")
             private String description;
 
-            @Description("each step should be described in 6 to 8 words, steps should rhyme with each other")
             private List<String> steps;
 
             private Integer preparationTimeMinutes;
@@ -146,7 +133,7 @@ public class _3_AiServices {
 
             // 4. Use AIService
 
-            Recipe recipe = chef.createRecipeFrom("cucumber", "tomato", "feta", "onion", "olives", "lemon");
+            Recipe recipe = chef.createRecipeFrom();
 
             System.out.println(recipe);
         }
