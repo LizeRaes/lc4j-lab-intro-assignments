@@ -1,4 +1,6 @@
 # LangChain4j Intro
+<img src='src/main/resources/images/langchain4j_logo_text.png' alt='LangChain4j Integrations' width="200">
+
 
 These exercises will make you familiar with the basic blocks needed for building apps around AI models with LangChain4j.
 You'll need
@@ -7,8 +9,6 @@ You'll need
 
 
 ### Building Blocks of LangChain4j
-
-<img src='https://raw.githubusercontent.com/amithkoujalgi/ollama4j/65a9d526150da8fcd98e2af6a164f055572bf722/ollama4j.jpeg' width='200' alt="langchain4j-building-blocks">
 
 ## Setup
 - obtain an OpenAI API key to interact with OpenAI's models. Store the key as environment variable `OPENAI_API_KEY` and restart your IDE if needed
@@ -48,19 +48,26 @@ By giving you a structure to work in, you can spend your focus on learning to ma
 
 ### 1. Text Generation
 Large Language Models take an input text (prompt) and return an answer.
-IMAGE OF IN OUT
+
+<img src='src/main/resources/images/LLM-basics.png' alt='Large Language Model Basics' width = '450'>
+
 If we want to make the answer better, we can either tweak the prompt (prompt engineering), choose a better suited model, or finetune our model.
 Models can be used 
 - via a provider (SaaS model - commercial models)
 - run them in our private cloud (open source models)
 - run them on a local machine (open source models), using a framework like Ollama
 LangChain4j provides the following integrations with model providers
-IMAGE OF INTEGRATIONS
+
+<img src='src/main/resources/images/llm-integrations.png' alt='Language model integrations' width = '250'>
+
 Have a look in the `_1_TextGeneration` class to see how to connect to a model and interact with it.
 
 ### 2. Image Generation     
 The image models that are supported in LangChain4j take a text input and turn it into an image, or vice versa.
-We currently support Dall-E and Gemini.
+We currently support these image models:
+
+<img src='src/main/resources/images/image-model-integrations.png' alt='Image model integrations' width = '150'>
+
 Have a look in the `_2_ImageGeneration` class to see how to use these image models in LangChain4j. 
 
 ### 3. AIServices         
@@ -75,7 +82,9 @@ Models and AiServices are stateless, so we have to take care of the memory. For 
 - `UserMessages` (what we said)
 - `AiMessages` (what the model answered)
 We can store all of these in a ChatMemory as follows
-IMAGE CHATMEMORY
+- 
+<img src='src/main/resources/images/chatmemory.png' alt='Chat Memory Concept' width = '450'>
+
 If we want to steer the model to reply in a format we want, we can use the few-shot technique, where we populate the memory with fake UserMessages and AiMessages.
 The model will then try to behave like the former AiMessages.
 There are more advanced ways to handle memory, eg. by persisting it and working with user IDs. 
@@ -91,7 +100,7 @@ It will then use the result of the tool call (if any) to help in constructing th
 It's important to know that tools increase the latency of the final response, because more calls to the LLM are made in the background.
 In `_5_Tools` you can try it out for yourself and observe the tool calls that are made behind the scene. 
 
-IMAGE TOOLS
+<img src='src/main/resources/images/tool-example.png' alt='Example of use of tools' width = '400'>
 
 ### 6. RAG (chat with your documents)  
 RAG, or retrieval-augmented generation is a pattern to fetch relevant parts from your data and stuff them in the context window together with the original question.
@@ -99,8 +108,12 @@ This allows you to ask questions about your own set of documents, make sure the 
 RAG is a cheaper way to give the model knowledge about your documents than finetuning.
 RAG consists of two phases that will typically be two separate processes:
 1. Ingestion phase: the documents (files, websites, ...) are loaded, splitted, turned into meaning vectors (embeddings) and stored in an embedding store
+
+<img src='src/main/resources/images/ingestion.png' alt='Ingestion' width = '400'>
+
 2. Retrieval phase: with every user prompt, the relevant fragments of our documents are collected by comparing the meaning vector of the prompt with the vectors in the embedding store. The relevant segments are then passed along to the model together with the original question.
-IMAGE RAG
+
+<img src='src/main/resources/images/retrieval.png' alt='Retrieval' width = '400'>
 
 ```plaintext
 Congratulations, you now master the most important building blocks of the LangChain4j repository!
