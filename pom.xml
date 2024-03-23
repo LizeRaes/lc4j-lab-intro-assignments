@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>engineering.epic</groupId>
-    <artifactId>langchain4j-intro</artifactId>
+    <artifactId>lc4j-lab-intro-solutions</artifactId>
     <version>0.28.0</version>
 
     <properties>
