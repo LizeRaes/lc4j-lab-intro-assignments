@@ -52,7 +52,7 @@ public class _5_Tools {
 
         GamingBot gamingBot = AiServices.builder(GamingBot.class)
                 .chatLanguageModel(model)
-                .chatMemory(MessageWindowChatMemory.withMaxMessages(10))
+                .chatMemory(chatMemory)
                 .build();
 
         String answer = gamingBot.chat("vader@hotmail.com","What should I do next?");
