@@ -22,7 +22,7 @@ You then can open this project in either your local VS Code or directly in your 
 For the OpenAI API key, you can store it in the Gitpod environment variables.
 Use the terminal with the GitPod cli: 
 ``` bash
-eval $(gp env -e foo=bar)
+eval $(gp env -e OPENAI_API_KEY='sk-...')
 ```
 Alternatively, go to the Gitpod User settings and add the key as an environment variable https://gitpod.io/user/variables
 
