@@ -3,16 +3,37 @@
 
 
 These exercises will make you familiar with the basic blocks needed for building apps around AI models with LangChain4j.
-You'll need
-- Java 8 or higher
-- Maven
+
 
 
 ### Building Blocks of LangChain4j
 
 ## Setup
-- obtain an OpenAI API key to interact with OpenAI's models. Store the key as environment variable `OPENAI_API_KEY` and restart your IDE if needed
-- add the following dependencies to your `pom.xml
+You need an OpenAI API key to interact with OpenAI's models. 
+
+
+#### :rocket: If you don't want to bother with a local setup
+You can use [Gitpod](https://gitpod.io).
+You must create an account first.
+You then can open this project in either your local VS Code or directly in your browser:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/LizeRaes/lc4j-lab-intro-assignments)
+
+For the OpenAI API key, you can store it in the Gitpod environment variables.
+Use the terminal with the GitPod cli: 
+``` bash
+eval $(gp env -e OPENAI_API_KEY='sk-...')
+```
+Alternatively, go to the Gitpod User settings and add the key as an environment variable https://gitpod.io/user/variables
+
+#### Local setup
+Store the key as environment variable `OPENAI_API_KEY` and restart your IDE if needed
+
+You'll need
+- Java 8 or higher
+- Maven
+
+Add the following dependencies to your `pom.xml`
 
 LangChain4j base dependency:
 ```xml  
