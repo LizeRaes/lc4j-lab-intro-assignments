@@ -10,7 +10,10 @@ These exercises will make you familiar with the basic blocks needed for building
 
 ## Setup
 You need an OpenAI API key to interact with OpenAI's models. 
-
+```plaintext
+Note: The expected cost for working through this workshop is 0.50$ to 1.50$. 
+Images are the most costly to produce.
+```
 
 #### :rocket: If you don't want to bother with a local setup
 You can use [Gitpod](https://gitpod.io).
