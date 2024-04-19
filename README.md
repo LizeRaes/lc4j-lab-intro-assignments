@@ -4,6 +4,9 @@
 
 These exercises will make you familiar with the basic blocks needed for building apps around AI models with LangChain4j.
 
+The solutions for this assigment are in the [solutions repo](https://github.com/LizeRaes/lc4j-lab-intro-solution).
+
+An example of how to use this basic blocks in a full blown app with database, frontend, data anlysis and chatbot can be found in [Feedback Analyser](https://github.com/LizeRaes/feedback-analyzer/).
 
 
 ### Building Blocks of LangChain4j
