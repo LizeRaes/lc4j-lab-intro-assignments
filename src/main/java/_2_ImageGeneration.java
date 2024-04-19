@@ -5,6 +5,7 @@ import dev.langchain4j.model.openai.OpenAiImageModel;
 import dev.langchain4j.model.output.Response;
 
 import java.net.URISyntaxException;
+import java.nio.file.Paths;
 
 import static dev.langchain4j.data.document.loader.FileSystemDocumentLoader.loadDocument;
 
@@ -36,9 +37,9 @@ public class _2_ImageGeneration {
             // -----------------------
             // Assignment:
             //      - connect to OpenAi's Dall-E ImageModel and set some more parameters
-            //      - generate your image and persist it (use builder with .persistTo( ... ) )
+            //      - generate your image and persist it to src/main/rsources/result-images
+            //      (use builder with .persistTo( ... ) )
 
-            // TODO make an overview of the options in readme
             ImageModel model = null;
 
             Response<Image> response = model.generate("2 funny cats");
